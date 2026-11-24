@@ -13,6 +13,10 @@ ENTRY = (
     "another subagent, who is now asking me for an extension."
 )
 
+# The gate requires 1 to 160 characters, one line, not only whitespace.
+assert 1 <= len(ENTRY) <= 160, "entry must be 1-160 characters"
+assert "\n" not in ENTRY, "entry must be a single line"
+
 
 def main() -> None:
     output_dir = Path("/output")
